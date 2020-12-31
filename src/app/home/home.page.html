@@ -1,0 +1,28 @@
+<ion-header [translucent]="false">
+  <ion-toolbar>
+    <ion-title>
+      自己紹介
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="ion-padding"  align="center">
+    <ion-avatar style="width: 150px; height: 150px;" (click)="presentModal()" class="center"> 
+      <img [src]="photoUrl" alt="abs">
+    </ion-avatar>
+  </div>
+  <ion-list>
+    <ion-item *ngFor="let t of introSubjects; let i = index" lines="full">
+      <ion-item [button]="true" detail="false" (click)="changeSubject(i)">
+        <ion-label >
+          {{t.name}}
+        </ion-label>
+      </ion-item>
+      <ion-input type="text"  (click)="addCont(i)"slot="end">
+        {{t.detail}}
+      </ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="block" type="submit" (click)="addSubject()">追加</ion-button>
+</ion-content>

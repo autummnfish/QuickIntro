@@ -1,0 +1,7 @@
+{
+  "name": "intro-r",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
