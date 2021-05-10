@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core'; // Inputを追加
 import { ModalController } from '@ionic/angular'; // 追加
+import { type } from 'os';
 
 
 @Component({
@@ -14,6 +15,7 @@ export class ModalUploadComponent implements OnInit {
   ngOnInit() {}
   fileSave:string;
   handleSubmit($event) {
+    console.log($event);
     $event.preventDefault();
     const file = $event.target.elements.photo.files[0];
     console.log(file);

@@ -102,10 +102,6 @@ export class HomePage {
       buttons: [
         {
           text: '閉じる',
-         /* handler: () => {
-            this.introSubjects.splice(this.introSubjects.length - 1, 1);
-            localStorage.introSubjects = JSON.stringify(this.introSubjects);
-          }*/
         },
       ]
     });
@@ -189,15 +185,20 @@ export class HomePage {
   async presentModal() {
     const modal = await this.modalController.create({
       component: ModalUploadComponent, // さっき作ったComponentを指定
-      componentProps: { value: 123 }
+      // componentProps: { value: 123 }
     });
     modal.present();
-    const { data } = await modal.onWillDismiss()
-    if (typeof data.content !== `string`) {
+    console.log(123);
+    const { data } = await modal.onWillDismiss();
+    if ( data === undefined) {
+      console.log(555);
       console.log("CALLED?");
-      throw new Error(`content should be string`)
+      // throw new Error(`content should be string`);
+    } else {
+      console.log(44444);
+      localStorage.setItem(`photoUrl`, data.content);
     }
-    localStorage.setItem(`photoUrl`, data.content);
+
     this.loadPhoto()
   }
 
@@ -210,7 +211,7 @@ export class HomePage {
 
   private loadPhoto() {
 
-    const existsPhoto = localStorage.getItem(`photoUrl`) !== null && localStorage.getItem(`photoUrl`).length >= 1
+    const existsPhoto = localStorage.getItem(`photoUrl`) != null && localStorage.getItem(`photoUrl`).length >= 1
 
     if (existsPhoto) {
       this.photoUrl = localStorage.getItem(`photoUrl`);
