@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core'; // Inputを追加
 import { ModalController } from '@ionic/angular'; // 追加
-import { type } from 'os';
 
 
 @Component({

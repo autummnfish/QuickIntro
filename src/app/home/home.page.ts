@@ -192,6 +192,7 @@ export class HomePage {
     const { data } = await modal.onWillDismiss();
     if ( data === undefined) {
       console.log(555);
+      
       console.log("CALLED?");
       // throw new Error(`content should be string`);
     } else {
