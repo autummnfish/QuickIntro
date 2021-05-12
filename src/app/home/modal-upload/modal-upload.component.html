@@ -1,6 +1,6 @@
 <form (submit)="handleSubmit($event)">
   <ion-label for="photo">画像を選択してください</ion-label>
   <input type="file" name="photo" id="photo-upload" />
-  <ion-button (click)="dismissModal()">キャンセル</ion-button>
+  <ion-button (click)="dismissModal($event)">キャンセル</ion-button>
   <ion-button type="submit" slot="end">送信</ion-button>
 </form>

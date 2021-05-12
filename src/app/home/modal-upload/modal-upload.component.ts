@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core'; // Inputを追加
+import { Component, OnInit } from '@angular/core'; // Inputを追加
 import { ModalController } from '@ionic/angular'; // 追加
 
 
@@ -20,6 +20,7 @@ export class ModalUploadComponent implements OnInit {
     console.log(file);
     if (file) {
       const reader = new FileReader();
+      console.log(reader);
       reader.addEventListener('load', (event) => {
         const content = event.target.result;
         this.modalCtl.dismiss({
@@ -31,8 +32,8 @@ export class ModalUploadComponent implements OnInit {
     }
   }
 
-  dismissModal() {
-    console.log("CALLED?");
+  dismissModal($event) {
+    console.log("dismissed");
     this.modalCtl.dismiss({
       'dismissed': true
     });

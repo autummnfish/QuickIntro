@@ -188,19 +188,22 @@ export class HomePage {
       // componentProps: { value: 123 }
     });
     modal.present();
-    console.log(123);
     const { data } = await modal.onWillDismiss();
-    if ( data === undefined) {
-      console.log(555);
-      
-      console.log("CALLED?");
+    console.log(data);
+    console.log(localStorage.length);
+    let photoContent: string;
+    if ( data === undefined || data.dismissed) {
+      console.log(444);
+      photoContent = this.photoUrl;
       // throw new Error(`content should be string`);
+      localStorage.clear();
+      localStorage.setItem(`photoUrl`,photoContent);
     } else {
-      console.log(44444);
+      localStorage.clear();
       localStorage.setItem(`photoUrl`, data.content);
     }
-
     this.loadPhoto()
+    
   }
 
   ionViewWillEnter() {
